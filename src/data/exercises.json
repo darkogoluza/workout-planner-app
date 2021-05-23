@@ -1,0 +1,14 @@
+[
+    {
+        "id":0,
+        "name":"push up",
+        "mechanics":"compound",
+        "type":"bodyweight",
+        "force":"push",
+        "positive":"regular",
+        "negative":"regular",
+        "execution":"Keeping body straight, lower body to floor by bending arms. Push body up until arms are extended. Repeat.",
+        "target_muscles":["Pectoralis Major, Sternal"],
+        "assisting_muscles":["Pectoralis Major, Clavicular","Deltoid, Anterior", "Triceps Brachii"]
+    }
+]
