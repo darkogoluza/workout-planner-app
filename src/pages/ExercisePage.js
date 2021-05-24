@@ -18,7 +18,7 @@ const ExercisePage = () => {
       execution,
     } = exercise[0];
     return (
-      <>
+      <main>
         <header className="flex relative p-4">
           <button className="absolute ">
             <svg
@@ -94,7 +94,7 @@ const ExercisePage = () => {
             {execution}
           </p>
         </section>
-      </>
+      </main>
     );
   } else {
     return <h1>Loading</h1>;

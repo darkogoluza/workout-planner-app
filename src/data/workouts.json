@@ -1,0 +1,40 @@
+[
+    {
+        "id":0,
+        "name":"chest",
+        "exercises":[
+            {
+                "id":0,
+                "exercise_id": 0,
+                "reps_range": [8,12],
+                "sets_range": [3],
+                "rest_time_between_sets": [1.5,2],
+                "rest_time":2
+            },
+            {
+                "id":1,
+                "exercise_id": 0,
+                "reps_range": [8,12],
+                "sets_range": [3],
+                "rest_time_between_sets": [1.5,2],
+                "rest_time":2
+            },
+            {
+                "id":2,
+                "exercise_id": 0,
+                "reps_range": [8,12],
+                "sets_range": [3],
+                "rest_time_between_sets": [1.5,2],
+                "rest_time":2
+            },
+            {
+                "id":3,
+                "exercise_id": 0,
+                "reps_range": [8,12],
+                "sets_range": [3],
+                "rest_time_between_sets": [1.5,2],
+                "rest_time":2
+            }
+        ]
+    }
+]
