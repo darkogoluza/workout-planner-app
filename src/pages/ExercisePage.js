@@ -1,10 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useParams, Link } from "react-router-dom";
 
 const ExercisePage = () => {
   const exercise = useSelector((state) => state.exerciesReducer);
+  const { id } = useParams();
 
-  console.log(exercise[0]);
   if (exercise.length > 0) {
     const {
       name,
@@ -16,11 +17,11 @@ const ExercisePage = () => {
       target_muscles,
       assisting_muscles,
       execution,
-    } = exercise[0];
+    } = exercise[id];
     return (
       <main>
         <header className="flex relative p-4">
-          <button className="absolute ">
+          <Link className="absolute " to="/workout">
             <svg
               className="w-10 h-10 fill-current text-gray-500 hover:text-gray-600 transition duration-150 ease-out"
               fill="none"
@@ -35,7 +36,7 @@ const ExercisePage = () => {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-          </button>
+          </Link>
           <h3 className="text-gray-500 text-center text-2xl capitalize mx-auto">
             Exercise
           </h3>

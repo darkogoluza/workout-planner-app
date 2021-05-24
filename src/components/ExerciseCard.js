@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const ExerciseCard = ({
   name,
@@ -9,6 +10,7 @@ const ExerciseCard = ({
   execution,
   positive,
   negative,
+  exercise_id,
   isLast,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -113,12 +115,12 @@ const ExerciseCard = ({
             </h4>
           </section>
           <div className="p-4 space-y-2 flex flex-col justify-center">
-            <button
-              className="px-4 py-2 bg-red-500 rounded-lg text-gray-100 border-2 hover:text-red-500 hover:bg-transparent transition-all duration-150 hover:border-red-500"
-              onClick={handleLearnMore}
+            <Link
+              className="px-4 py-2 bg-red-500 rounded-lg text-gray-100 border-2 hover:text-red-500 hover:bg-transparent transition-all duration-150 hover:border-red-500  text-center"
+              to={`/exercise/${exercise_id}`}
             >
               Learn More
-            </button>
+            </Link>
             <button
               className="px-4 py-2 bg-gray-400 rounded-lg text-gray-100 border-2 hover:text-gray-500 hover:bg-transparent transition-all duration-150 hover:border-gray-400"
               onClick={() => {

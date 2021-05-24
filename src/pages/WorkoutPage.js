@@ -45,6 +45,7 @@ const WorkoutPage = () => {
                     isLast,
                     positive,
                     negative,
+                    exercise_id,
                   }}
                 />
               );
