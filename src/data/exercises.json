@@ -10,5 +10,101 @@
         "execution":"Keeping body straight, lower body to floor by bending arms. Push body up until arms are extended. Repeat.",
         "target_muscles":["Pectoralis Major, Sternal"],
         "assisting_muscles":["Pectoralis Major, Clavicular","Deltoid, Anterior", "Triceps Brachii"]
+    },
+    {
+        "id":1,
+        "name":"chest dip",
+        "mechanics":"compound",
+        "type":"bodyweight",
+        "force":"push",
+        "positive":"regular",
+        "negative":"regular",
+        "execution":"Lower body by bending arms, allowing elbows to flare out to sides. When slight stretch is felt in chest or shoulders, push body up until arms are straight. Repeat.",
+        "target_muscles":["Pectoralis Major, Sternal"],
+        "assisting_muscles":["Deltoid, Anterior","Triceps Brachii","Pectoralis Major, Clavicular", "Pectoralis Minor","Rhomboids","Levator Scapulae","Latissimus Dorsi", "Teres Major"]
+    },
+    {
+        "id":2,
+        "name":"clap push up",
+        "mechanics":"compound",
+        "type":"bodyweight",
+        "force":"push",
+        "positive":"explosive",
+        "negative":"regular",
+        "execution":"Lower body to floor and immediately push body up as fast as possible. As the hands leave ground, rapidly clap hands together and place back to original position, catching body before it falls. Repeat.",
+        "target_muscles":["Pectoralis Major, Sternal"],
+        "assisting_muscles":["Pectoralis Major, Clavicular","Deltoid, Anterior", "Triceps Brachii"]
+    },
+    {
+        "id":3,
+        "name":"incline push up",
+        "mechanics":"compound",
+        "type":"bodyweight",
+        "force":"push",
+        "positive":"regular",
+        "negative":"regular",
+        "execution":"Keeping body straight, lower chest to edge of box or platform by bending arms. Push body up until arms are extended. Repeat.",
+        "target_muscles":["Pectoralis Major, Sternal"],
+        "assisting_muscles":["Pectoralis Major, Clavicular","Deltoid, Anterior", "Triceps Brachii"]
+    },
+    {
+        "id":4,
+        "name":"pull up",
+        "mechanics":"compound",
+        "type":"bodyweight",
+        "force":"pull",
+        "positive":"explosive",
+        "negative":"slow",
+        "execution":"Pull body up until chin is above bar. Lower body until arms and shoulders are fully extended. Repeat.",
+        "target_muscles":["Latissimus Dorsi"],
+        "assisting_muscles":["Brachialis","Brachioradialis","Biceps Brachii","Teres Major","Deltoid, Posterior","Infraspinatus","Teres Minor","Rhomboids","Levator Scapulae","Trapezius, Lower","Trapezius, Middle","Pectoralis Minor"]
+    },
+    {
+        "id":5,
+        "name":"chin up",
+        "mechanics":"compound",
+        "type":"bodyweight",
+        "force":"pull",
+        "positive":"explosive",
+        "negative":"slow",
+        "execution":"Pull body up until elbow are to sides. Lower body until arms and shoulders are fully extended. Repeat.",
+        "target_muscles":["Latissimus Dorsi"],
+        "assisting_muscles":["Brachialis","Brachioradialis","Pectoralis Major, Sternal","Teres Major","Deltoid, Posterior","Teres Minor","Rhomboids","Levator Scapulae","Trapezius, Lower","Trapezius, Middle","Pectoralis Minor"]
+    },
+    {
+        "id":6,
+        "name":"barbell lunge",
+        "mechanics":"compound",
+        "type":"weighted",
+        "force":"push",
+        "positive":"regular",
+        "negative":"regular",
+        "execution":"Lunge forward with first leg. Land on heel, then forefoot. Lower body by flexing knee and hip of front leg until knee of rear leg is almost in contact with floor. Return to original standing position by forcibly extending hip and knee of forward leg. Repeat by alternating lunge with opposite leg.",
+        "target_muscles":["Quadriceps"],
+        "assisting_muscles":["Gluteus Maximus","Adductor Magnus","Soleus"]
+    },
+    {
+        "id":7,
+        "name":"barbell squat",
+        "mechanics":"compound",
+        "type":"weighted",
+        "force":"push",
+        "positive":"regular",
+        "negative":"regular",
+        "execution":"Squat down by bending hips back while allowing knees to bend forward, keeping back straight and knees pointed same direction as feet. Descend until thighs are just past parallel to floor. Extend knees and hips until legs are straight. Return and repeat.",
+        "target_muscles":["Quadriceps"],
+        "assisting_muscles":["Gluteus Maximus","Adductor Magnus","Soleus"]
+    },
+    {
+        "id":8,
+        "name":"barbell single leg split squat",
+        "mechanics":"compound",
+        "type":"weighted",
+        "force":"push",
+        "positive":"regular",
+        "negative":"regular",
+        "execution":"Squat down by flexing knee and hip of front leg until knee of rear leg is almost in contact with floor. Return to original standing position by extending hip and knee of forward leg. Repeat. Continue with opposite leg.",
+        "target_muscles":["Quadriceps"],
+        "assisting_muscles":["Gluteus Maximus","Adductor Magnus","Soleus"]
     }
 ]

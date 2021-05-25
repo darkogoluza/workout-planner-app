@@ -1,0 +1,43 @@
+[
+    {
+        "id":0,
+        "name":"full body",
+        "workouts":[
+            {
+                "id":0,
+                "workout_id":0,
+                "other":null
+            },
+            {
+                "id":1,
+                "workout_id":null,
+                "other":"rest"
+            },
+            {
+                "id":2,
+                "workout_id":1,
+                "other":null
+            },
+            {
+                "id":3,
+                "workout_id":null,
+                "other":"rest"
+            },
+            {
+                "id":4,
+                "workout_id":2,
+                "other":null
+            },
+            {
+                "id":5,
+                "workout_id":null,
+                "other":"rest"
+            },
+            {
+                "id":6,
+                "workout_id":null,
+                "other":"active_rest"
+            }
+        ]
+    }
+]

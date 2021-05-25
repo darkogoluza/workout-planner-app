@@ -31,11 +31,6 @@ const ExerciseCard = ({
     );
   };
 
-  const handleLearnMore = (e) => {
-    e.preventDefault();
-  };
-  console.log(isOpen);
-
   useEffect(() => {
     setIsOpen(false);
   }, [mainContentRef]);
@@ -75,15 +70,15 @@ const ExerciseCard = ({
           </h2>
           <div className="text-xs mt-2 tracking-wide">
             <h4 className="text-gray-500 text-center">
-              Reps Range:
+              {reps_range.length > 1 ? "Reps Range:" : "Reps:"}
               <span className="text-gray-900"> {reps_range.join("-")}</span>
             </h4>
             <h4 className="text-gray-500 text-center">
-              Sets Range:
+              {sets_range.length > 1 ? "Sets Range:" : "Sets:"}
               <span className="text-gray-900"> {sets_range.join("-")}</span>
             </h4>
             <h4 className="text-gray-500 text-center">
-              Rest Time:
+              Rest Between Sets:
               <span className="text-gray-900">
                 {" "}
                 {rest_time_between_sets.map((time) => `${time}min`).join(" - ")}
@@ -93,7 +88,7 @@ const ExerciseCard = ({
               Total Estimated Time:
               <span className="text-gray-900">
                 {" "}
-                {calculateTotalExersiceTime()} min
+                {calculateTotalExersiceTime().toFixed(2)} min
               </span>
             </h4>
           </div>
@@ -108,10 +103,10 @@ const ExerciseCard = ({
           </section>
           <section className="flex justify-evenly pt-2 pb-6 ">
             <h4 className="text-gray-500 capitalize">
-              Positive: <span className="text-gray-900">{positive}</span>
+              Concentric: <span className="text-gray-900">{positive}</span>
             </h4>
             <h4 className="text-gray-500 capitalize">
-              Negative: <span className="text-gray-900">{negative}</span>
+              Eccentric: <span className="text-gray-900">{negative}</span>
             </h4>
           </section>
           <div className="p-4 space-y-2 flex flex-col justify-center">

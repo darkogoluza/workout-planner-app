@@ -1,22 +1,28 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import ExerciseCard from "../components/ExerciseCard";
+import PageTitle from "../components/PageTitle";
+import PageHeader from "../components/PageHeader";
+import calculateTotalWorkoutTime from "../utils/calculateTotalWorkoutTime";
 
 const WorkoutPage = () => {
-  const workouts = useSelector((state) => state.workoutReducer);
+  const workout = useSelector((state) => state.workoutsReducer);
   const exercisesData = useSelector((state) => state.exerciesReducer);
+  const { workouts, currentWorkout } = workout;
 
   if (workouts.length > 0) {
-    const { name, exercises } = workouts[0];
+    const { name, exercises } = workouts[currentWorkout];
     return (
       <main>
-        <h3 className="text-xl text-gray-500 text-center p-4">
-          Workout Planner
+        <PageHeader to="/workout-plan">Workout</PageHeader>
+        <PageTitle>{name}</PageTitle>
+        <h3 className="text-gray-500 text-center text-xl mt-4">
+          Total Duration:{" "}
+          <span className="text-gray-900">
+            {calculateTotalWorkoutTime(exercises).toFixed(2)} min
+          </span>
         </h3>
-        <h1 className="capitalize text-4xl text-red-500 text-center tracking-wide font-semibold">
-          {name}
-        </h1>
-        <ul className="space-y-4 mt-8">
+        <ul className="space-y-4 mt-8 mb-16">
           {exercises.map(
             (
               {

@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import PageHeader from "../components/PageHeader";
+import PageTitle from "../components/PageTitle";
 
 const ExercisePage = () => {
   const exercise = useSelector((state) => state.exerciesReducer);
   const { id } = useParams();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (exercise.length > 0) {
     const {
@@ -20,31 +26,9 @@ const ExercisePage = () => {
     } = exercise[id];
     return (
       <main>
-        <header className="flex relative p-4">
-          <Link className="absolute " to="/workout">
-            <svg
-              className="w-10 h-10 fill-current text-gray-500 hover:text-gray-600 transition duration-150 ease-out"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 19l-7-7m0 0l7-7m-7 7h18"
-              />
-            </svg>
-          </Link>
-          <h3 className="text-gray-500 text-center text-2xl capitalize mx-auto">
-            Exercise
-          </h3>
-        </header>
-        <h1 className="text-center text-6xl capitalize text-red-500 font-semibold tracking-wide">
-          {name}
-        </h1>
-        <section className="space-y-2 text-center mt-8">
+        <PageHeader to="/workout">Exercise</PageHeader>
+        <PageTitle>{name}</PageTitle>
+        <section className="text-center mt-8">
           <h4 className="text-gray-500 capitalize">
             Mechanics: <span className="text-gray-900">{mechanics}</span>
           </h4>
@@ -58,11 +42,11 @@ const ExercisePage = () => {
 
         <section className="bg-gray-200 h-24 w-full mt-4 rounded-xl shadow-md felx flex justify-evenly items-center">
           <div className="text-center">
-            <h2 className="text-4xl text-gray-500">Positive</h2>
+            <h2 className="text-4xl text-gray-500">Concentric</h2>
             <h4 className="capitalize text-gray-900">{positive}</h4>
           </div>
           <div className="text-center">
-            <h2 className="text-4xl text-gray-500">Negative</h2>
+            <h2 className="text-4xl text-gray-500">Eccentric</h2>
             <h4 className="capitalize text-gray-900">{negative}</h4>
           </div>
         </section>
