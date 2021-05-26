@@ -11,7 +11,7 @@ function App() {
         <Route exact path="/workout-plan">
           <WorkoutPlanPage />
         </Route>
-        <Route exact path="/workout">
+        <Route exact path="/workout/:id">
           <WorkoutPage />
         </Route>
         <Route exact path="/exercise/:id">

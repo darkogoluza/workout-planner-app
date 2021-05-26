@@ -1,16 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import calculateTotalWorkoutTime from "../utils/calculateTotalWorkoutTime";
-import { changeCurrentWorkout } from "../actions";
+import getDayOfTheWeekIndex from "../utils/getDayOfTheWeekIndex";
 
 const CardWrapper = ({ children, index, refProp, onClick, height }) => {
-  const getDayOfTheWeekIndex = () => {
-    const d = new Date();
-    const day = d.getDay(),
-      diff = d.getDate() - day + (day === 0 ? -6 : 1);
-    return new Date(d.setDate(diff)).getDay();
-  };
+  console.log(getDayOfTheWeekIndex());
 
   return (
     <li
@@ -27,8 +22,7 @@ const CardWrapper = ({ children, index, refProp, onClick, height }) => {
 };
 
 const WorkoutCard = ({ workout_id, other, index }) => {
-  const { workouts } = useSelector((state) => state.workoutsReducer);
-  const dispatch = useDispatch();
+  const workouts = useSelector((state) => state.workoutsReducer);
 
   const weeks = [
     "Monday",
@@ -45,7 +39,6 @@ const WorkoutCard = ({ workout_id, other, index }) => {
   const cardRef = useRef(null);
 
   const getCardHeight = () => {
-    console.log(secundaryContentRef.current?.offsetHeight);
     if (mainContentRef.current === null) return "0px";
     if (isOpen) {
       return (
@@ -120,10 +113,7 @@ const WorkoutCard = ({ workout_id, other, index }) => {
           <div className="p-4 space-y-2 flex flex-col justify-center">
             <Link
               className="px-4 py-2 bg-red-500 rounded-lg text-gray-100 border-2 hover:text-red-500 hover:bg-transparent transition-all duration-150 hover:border-red-500  text-center"
-              to={`/workout`}
-              onClick={() => {
-                dispatch(changeCurrentWorkout(workout_id));
-              }}
+              to={`/workout/${workout_id}`}
             >
               Learn More
             </Link>

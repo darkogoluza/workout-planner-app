@@ -7,6 +7,7 @@ import PageTitle from "../components/PageTitle";
 const ExercisePage = () => {
   const exercise = useSelector((state) => state.exerciesReducer);
   const { id } = useParams();
+  const currentWorkout = localStorage.getItem("current_workout");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -26,7 +27,9 @@ const ExercisePage = () => {
     } = exercise[id];
     return (
       <main>
-        <PageHeader to="/workout">Exercise</PageHeader>
+        <PageHeader to={currentWorkout ? `/workout/${currentWorkout}` : "/"}>
+          Exercise
+        </PageHeader>
         <PageTitle>{name}</PageTitle>
         <section className="text-center mt-8">
           <h4 className="text-gray-500 capitalize">

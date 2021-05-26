@@ -1,14 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import ExerciseCard from "../components/ExerciseCard";
 import PageTitle from "../components/PageTitle";
 import PageHeader from "../components/PageHeader";
 import calculateTotalWorkoutTime from "../utils/calculateTotalWorkoutTime";
 
 const WorkoutPage = () => {
-  const workout = useSelector((state) => state.workoutsReducer);
+  const workouts = useSelector((state) => state.workoutsReducer);
   const exercisesData = useSelector((state) => state.exerciesReducer);
-  const { workouts, currentWorkout } = workout;
+  const { id: currentWorkout } = useParams();
 
   if (workouts.length > 0) {
     const { name, exercises } = workouts[currentWorkout];
@@ -52,6 +53,7 @@ const WorkoutPage = () => {
                     positive,
                     negative,
                     exercise_id,
+                    workout_id: id,
                   }}
                 />
               );

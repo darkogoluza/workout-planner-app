@@ -11,6 +11,7 @@ const ExerciseCard = ({
   positive,
   negative,
   exercise_id,
+  workout_id,
   isLast,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -113,6 +114,9 @@ const ExerciseCard = ({
             <Link
               className="px-4 py-2 bg-red-500 rounded-lg text-gray-100 border-2 hover:text-red-500 hover:bg-transparent transition-all duration-150 hover:border-red-500  text-center"
               to={`/exercise/${exercise_id}`}
+              onClick={() => {
+                localStorage.setItem("current_workout", workout_id);
+              }}
             >
               Learn More
             </Link>

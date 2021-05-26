@@ -11,7 +11,7 @@ const WorkoutPlanPage = () => {
     const { name, workouts } = workoutsPlan[0];
     return (
       <main>
-        <PageHeader>Workout Plan</PageHeader>
+        <PageHeader to="/">Workout Plan</PageHeader>
         <PageTitle>{name}</PageTitle>
         <ul className="space-y-8 mt-16 mb-16">
           {workouts.map((workout, index) => {
