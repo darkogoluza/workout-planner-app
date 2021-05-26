@@ -9,7 +9,8 @@ import calculateTotalWorkoutTime from "../utils/calculateTotalWorkoutTime";
 const WorkoutPage = () => {
   const workouts = useSelector((state) => state.workoutsReducer);
   const exercisesData = useSelector((state) => state.exerciesReducer);
-  const { id: currentWorkout } = useParams();
+  let { id: currentWorkout } = useParams();
+  currentWorkout = parseInt(currentWorkout);
 
   if (workouts.length > 0) {
     const { name, exercises } = workouts[currentWorkout];
@@ -53,7 +54,7 @@ const WorkoutPage = () => {
                     positive,
                     negative,
                     exercise_id,
-                    workout_id: id,
+                    workout_id: currentWorkout,
                   }}
                 />
               );

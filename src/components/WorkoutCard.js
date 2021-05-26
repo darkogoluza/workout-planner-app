@@ -5,8 +5,6 @@ import calculateTotalWorkoutTime from "../utils/calculateTotalWorkoutTime";
 import getDayOfTheWeekIndex from "../utils/getDayOfTheWeekIndex";
 
 const CardWrapper = ({ children, index, refProp, onClick, height }) => {
-  console.log(getDayOfTheWeekIndex());
-
   return (
     <li
       ref={refProp}

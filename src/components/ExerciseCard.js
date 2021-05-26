@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { removeExerciseFromWorkout } from "../actions";
 
 const ExerciseCard = ({
   name,
@@ -18,6 +20,7 @@ const ExerciseCard = ({
   const mainContentRef = useRef(null);
   const secundaryContentRef = useRef(null);
   const cardRef = useRef(null);
+  const dispatch = useDispatch();
 
   const calculateTotalExersiceTime = () => {
     const avgRestTime =
@@ -52,19 +55,57 @@ const ExerciseCard = ({
     }
   };
 
+  const handleRemoveExercise = () => {
+    console.log(exercise_id);
+    dispatch(removeExerciseFromWorkout(workout_id, exercise_id));
+  };
+
   return (
     <li className="w-full">
       <div
-        className={`bg-gray-200 shadow-md rounded-xl w-full ${
-          !isOpen && "cursor-pointer"
-        } overflow-hidden transition-all duration-300 
+        className={`bg-gray-200 shadow-md rounded-xl w-full relative overflow-hidden transition-all duration-300 
         `}
-        onClick={() => {
-          if (!isOpen) setIsOpen(true);
-        }}
         style={{ height: getCardHeight() }}
         ref={cardRef}
       >
+        <div className="absolute right-4 flex top-2 space-x-2 cursor-pointer">
+          <div
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 text-gray-500 stroke-current hover:text-gray-900 transition-colors duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+          <div onClick={handleRemoveExercise}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 fill-current text-gray-500 cursor-pointer hover:text-red-500 transition-colors duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </div>
+        </div>
         <div ref={mainContentRef} className="p-2">
           <h2 className="text-gray-900 text-center text-2xl capitalize">
             {name}
