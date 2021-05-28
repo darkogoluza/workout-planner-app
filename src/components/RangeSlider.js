@@ -1,15 +1,11 @@
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 import clamp from "../utils/clamp";
+import isAllNumeric from "../utils/isAllNumeric";
 
 const RangeSlider = ({ value, setValue, min, max, title }) => {
   const handleChangeValue = (event, newValue) => {
     setValue(newValue);
-  };
-  const isAllNumeric = (inputtxt) => {
-    if (inputtxt === undefined || inputtxt === null) return;
-    var numbers = /^[0-9]+$/;
-    return inputtxt.match(numbers);
   };
   return (
     <div>
