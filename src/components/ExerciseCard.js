@@ -56,7 +56,6 @@ const ExerciseCard = ({
   };
 
   const handleRemoveExercise = () => {
-    console.log(exercise_id);
     dispatch(removeExerciseFromWorkout(workout_id, exercise_id));
   };
 
