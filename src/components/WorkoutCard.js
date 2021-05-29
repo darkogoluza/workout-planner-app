@@ -2,22 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import calculateTotalWorkoutTime from "../utils/calculateTotalWorkoutTime";
-import getDayOfTheWeekIndex from "../utils/getDayOfTheWeekIndex";
-
-const CardWrapper = ({ children, index, refProp, onClick, height }) => {
-  return (
-    <li
-      ref={refProp}
-      onClick={onClick}
-      className={`w-full h-24 overflow-hidden bg-gray-200 ${
-        getDayOfTheWeekIndex() === index && "border-red-500 border-2"
-      } shadow-lg rounded-lg transition-all duration-300`}
-      style={{ height: height }}
-    >
-      {children}
-    </li>
-  );
-};
+import WorkoutCardWrapper from "./WorkoutCardWrapper";
+import WorkoutCardIcons from "./WorkoutCardIcons";
 
 const WorkoutCard = ({ workout_id, other, index }) => {
   const workouts = useSelector((state) => state.workoutsReducer);
@@ -48,6 +34,12 @@ const WorkoutCard = ({ workout_id, other, index }) => {
     }
   };
 
+  const handleInfoClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleAdjustClick = () => {};
+
   useEffect(() => {
     setIsOpen(false);
   }, [mainContentRef]);
@@ -59,21 +51,23 @@ const WorkoutCard = ({ workout_id, other, index }) => {
 
   if (other === "rest") {
     return (
-      <CardWrapper index={index}>
+      <WorkoutCardWrapper index={index}>
+        <WorkoutCardIcons onAdjustClick={handleAdjustClick} />
         <div ref={mainContentRef} className="capitalize p-4 text-center">
           <h3 className="text-gray-500">{weeks[index]}</h3>
           <h1 className="text-gray-900 text-4xl">Rest Day</h1>
         </div>
-      </CardWrapper>
+      </WorkoutCardWrapper>
     );
   } else if (other === "active_rest") {
     return (
-      <CardWrapper index={index}>
+      <WorkoutCardWrapper index={index}>
+        <WorkoutCardIcons onAdjustClick={handleAdjustClick} />
         <div ref={mainContentRef} className="capitalize p-4 text-center">
           <h3 className="text-gray-500">{weeks[index]}</h3>
           <h1 className="text-gray-900 text-4xl">Active Rest Day</h1>
         </div>
-      </CardWrapper>
+      </WorkoutCardWrapper>
     );
   } else if (workout_id !== null) {
     const { name, exercises } = workouts.find(
@@ -81,20 +75,16 @@ const WorkoutCard = ({ workout_id, other, index }) => {
     );
 
     return (
-      <CardWrapper
+      <WorkoutCardWrapper
         refProp={cardRef}
         index={index}
-        onClick={() => {
-          if (!isOpen) setIsOpen(true);
-        }}
         height={getCardHeight()}
       >
-        <div
-          ref={mainContentRef}
-          className={`capitalize p-4 text-center ${
-            !isOpen && "cursor-pointer"
-          }`}
-        >
+        <WorkoutCardIcons
+          onInfoClick={handleInfoClick}
+          onAdjustClick={handleAdjustClick}
+        />
+        <div ref={mainContentRef} className={`capitalize p-4 text-center`}>
           <h3 className="text-gray-500">{weeks[index]}</h3>
           <h1 className="text-gray-900 text-4xl">{name} Day</h1>
         </div>
@@ -125,7 +115,7 @@ const WorkoutCard = ({ workout_id, other, index }) => {
             </button>
           </div>
         </div>
-      </CardWrapper>
+      </WorkoutCardWrapper>
     );
   }
 };
